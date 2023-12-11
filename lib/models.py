@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, func
-from sqlalchemy import ForeignKey, Table, Column, Integer, String, DateTime
+from sqlalchemy import ForeignKey, Table, Column, Integer, String
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -36,7 +36,7 @@ class Customer(Base):
     id = Column(Integer(), primary_key=True)
     f_name = Column(String())
     l_name = Column(String())
-    
+
     restaurants = relationship('Restaurant', secondary=restaurant_user, back_populates='customers')
     reviews = relationship('Review', backref=backref('customer'))
 
