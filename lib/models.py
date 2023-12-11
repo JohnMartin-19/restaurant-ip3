@@ -19,7 +19,7 @@ class Restaurant(Base):
     __tablename__ = 'restaurants'
 
     id = Column(Integer(), primary_key=True)
-    name = Column(String())
+    name  = Column(String())
     price = Column(Integer())
    
     customers = relationship('Customer', secondary=restaurant_user, back_populates='restaurants')
